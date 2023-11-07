@@ -25,12 +25,12 @@ app.use(morgan('dev'));
 app.use(helmet());
 
 // will happen on every request (taking away the /server part)
-// app.use((req, res, next)=> {
-//     if (req.path.startsWith('/server')) {
-//         req.url = req.url.replace('/server', ''); // strip /server from the path
-//     }
-//     next();
-// });
+app.use((req, res, next)=> {
+    if (req.path.startsWith('/server')) {
+        req.url = req.url.replace('/server', ''); // strip /server from the path
+    }
+    next();
+});
 
 
 
@@ -48,7 +48,8 @@ app.get("/coins", async (req, res) => {
 
 
 // CREATE 
-app.post("/currencies", async (req, res) => {
+app.post("/coins", async (req, res) => {
+    console.log("posting to coins", req.body);
     try {
         let createdResponse = await Crypto.create(req.body);
         res.status(201).send(createdResponse)
@@ -56,6 +57,8 @@ app.post("/currencies", async (req, res) => {
         res.status(400).send("error")
     }
 });
+
+
 // READ 
 app.get("/currencies", async (req, res) => {
     try {
@@ -66,9 +69,10 @@ app.get("/currencies", async (req, res) => {
     }
 });
 // UPDATE
-app.put("/currencies/:id", async (req, res) => {
+app.put("/coins/:id", async (req, res) => {
+    console.log(req.params.id, req.body);
     try {
-        let updatedResponse = await Crypto.findByIdAndUpdate(req.params.id, req.body, {new: true}).populate("stateId")
+        let updatedResponse = await Crypto.findByIdAndUpdate(req.params.id, req.body, {new: true})
         console.log(updatedResponse, req.body);
 
         res.status(200).send(updatedResponse);
@@ -78,9 +82,9 @@ app.put("/currencies/:id", async (req, res) => {
 });
 
 // DELETE
-app.delete("/currencies/:id", async (req, res) => {
+app.delete("/coins/:id", async (req, res) => {
     try {
-        let deletedResponse = await Crypto.findByIdAndDelete(req.params.bootcampId);
+        let deletedResponse = await Crypto.findByIdAndDelete(req.params.id);
         res.status(200).send(deletedResponse);
     } catch(error) {
         res.status(400).send("error")

@@ -1,0 +1,77 @@
+/* Overall layout */
+.portfolio-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  /* Individual card */
+  .coin-card {
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 250px; /* Fixed width or you could make it responsive */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .coin-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Card header */
+  .coin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .coin-name {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  /* Buttons */
+  .mybutton {
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    background-color: #e73c3c; /* Delete button color */
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* .mybutton:last-child {
+    background-color: #1471bd; 
+  } */
+  
+  .mybutton:hover {
+    opacity: 0.9;
+  }
+  
+  
+  .coin-info {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+ 
+  @media (max-width: 768px) {
+    .coin-card {
+      width: calc(50% - 1rem);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .coin-card {
+      width: 100%;
+    }
+  }
+  

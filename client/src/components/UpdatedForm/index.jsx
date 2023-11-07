@@ -6,7 +6,7 @@ import { useCrypto } from '../../context/cryptoContext';
 const UpdatedForm = () => {
 
 
-    const { coinToEdit, setCoinToEdit, currencies, coins, setCoins } = useCrypto();
+    const { coinToEdit, setCoinToEdit, currencies, setCurrencies, coins, setCoins } = useCrypto();
     
 console.log(coinToEdit);
     
@@ -29,14 +29,14 @@ console.log(coinToEdit);
         })
         console.log(response);
 
-        let newCoins = coins.map((coin) => {
+        let newCoins = currencies.map((coin) => {
             if (coin._id == coinToEdit._id) {
                 return response.data
             } else {
                 return coin
             }
           })
-          setCoins(newCoins);
+          setCurrencies(newCoins);
           setCoinToEdit(null)
 
         // update fronted state as well!
@@ -49,7 +49,7 @@ console.log(coinToEdit);
         <select
             id="name"
             name="name"
-            value={coinToEdit.currency._id}
+            value={coinToEdit._id}
             onChange={handleChange}
         >
             <option value="" disabled>Select a currency</option>
@@ -80,17 +80,8 @@ console.log(coinToEdit);
             onChange={handleChange}
         />
     </div>
-    <div>
-        <label htmlFor="orderType">Order Type:</label>
-        <input
-            type="text"
-            id="ordertype"
-            name="orderType"
-            value={coinToEdit.orderType}
-            onChange={handleChange}
-        />
-    </div>
-    <button type="submit">Submit updates</button>
+
+    <button className='mybutton' type="submit">Submit updates</button>
 </form>
   )
 }

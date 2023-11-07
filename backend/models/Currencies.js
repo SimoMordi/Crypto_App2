@@ -8,8 +8,10 @@ const currencySchema = new mongoose.Schema({
   },
   price: { type: Number, required: true
   },
-  orderType: { type: String, required: true, enum: ['buy', 'sell'] 
-  }
+  amount: { type: Number, required: true
+  },
+  // orderType: { type: String, required: true, enum: ['buy', 'sell'] 
+  // }
 });
 
 // Create a model using the schema

@@ -2,12 +2,12 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar'
 import axios from 'axios'
-import PortfolioForm from './pages/PorfolioForm'
-import PortfolioList from './pages/PortfolioList'
 import { useEffect } from 'react'
 import { useCrypto } from './context/cryptoContext'
 import HomePage from './pages/HomePage'
-import PortfolioPage from './pages/PortfolioPage'
+import PortfolioList from './pages/PortfolioList'
+import CoinsForm from './pages/CoinsForm'
+import CurrenciesPage from './pages/CurrenciesPage'
 import LoginPage from './components/Authentication/loginPage'
 import RegisterPage from './components/Authentication/RegisterPage'
 
@@ -54,8 +54,8 @@ function App() {
       <Routes>
        < Route path="/" element={<HomePage />} />
         <Route path="/coins/new" element={ <PortfolioList />  }  />
-        <Route path="/coins" element={ <PortfolioForm />  }  />
-        <Route path="/currencies" element={<PortfolioPage />} />
+        <Route path="/coins" element={ <CoinsForm />  }  />
+        <Route path="/currencies" element={<CurrenciesPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
       

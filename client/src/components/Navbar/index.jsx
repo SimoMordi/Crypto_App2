@@ -7,23 +7,23 @@ const Navbar = () => {
      <nav className="navbar">
      <div className="navbar-container">
        <Link to="/" className="navbar-logo">
-         CryptoApp
+         Home CryptoApp
        </Link>
        <ul className="nav-menu">
          
          <li className="nav-item">
            <Link to="/coins/new" className="nav-links">
-             My Portfolio List
+             My Portfolio
            </Link>
          </li>
          <li className="nav-item">
            <Link to="/coins" className="nav-links">
-           Trade
+           Coins
            </Link>
          </li>
          <li className="nav-item">
            <Link to="/currencies" className="nav-links">
-           Market
+           Currencies
            </Link>
          </li>
          

@@ -1,14 +1,12 @@
 import axios from 'axios';
 import UpdatedForm from '../../components/UpdatedForm';
 import { useCrypto } from '../../context/cryptoContext';
-
-
+import './index.css'
 
 const PortfolioList = () => {
 
 
-  const { coins, setCoins, coinToEdit, setCoinToEdit } = useCrypto();
-  console.log(coins);
+  const { currencies, setCurrencies, coinToEdit, setCoinToEdit } = useCrypto();
 
   const handleDelete = (id) => {
     try{
@@ -18,11 +16,11 @@ const PortfolioList = () => {
       }).then(() => {
         // just like when we create on the DB, and add it to frontend state
         // when we delete from DB, we need to remove from frontend state
-        let newCoins = coins.filter((coin) => {
+        let newCoins = currencies.filter((coin) => {
           return coin._id !== id;
         })
        
-        setCoins(newCoins);
+        setCurrencies(newCoins);
       })
 
     } catch (error) {
@@ -31,18 +29,19 @@ const PortfolioList = () => {
   }
 
   return (
-    <div>
+    <div className="portfolio-list" >
 
      {coinToEdit &&  <UpdatedForm />}
 
-      {coins.map((coin) => {
-        return <div key={coin._id} >
-          <h3>{coin.name}</h3>
-          <button onClick={() => handleDelete(coin._id)}>DELETE</button>
-          <button onClick={() => setCoinToEdit(coin)}>Edit</button>
-          <p>{coin.symbol}</p>
-          <p>{coin.price}</p>
-          <p>Price: {order.price.$numberDecimal}</p>
+      {currencies.map((coin) => {
+        return <div key={coin._id}  className="coin-card">
+          <h3 className="coin-name" >{coin.name}</h3>
+          <button  className="mybutton" onClick={() => handleDelete(coin._id)}>DELETE</button>
+          <button   className="mybutton"onClick={() => setCoinToEdit(coin)}>Edit</button>
+          <div className="coin-info">
+            <p>Symbol: {coin.symbol}</p>
+            <p>Price: {coin.price}</p>
+          </div>
         </div>
       })}
     </div>

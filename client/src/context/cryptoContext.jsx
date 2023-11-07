@@ -14,7 +14,7 @@ const CryptoProvider = ({children}) => {
 
 
     console.log(currencies);
-    // return provider div
+   
     return (
         <CryptoContext.Provider value={{
             coins, setCoins,
