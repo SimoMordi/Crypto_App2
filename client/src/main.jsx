@@ -10,9 +10,11 @@ import CryptoProvider from './context/cryptoContext.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
+
       <CryptoProvider>
           <App />
       </CryptoProvider>
+      
     </Router>
   </React.StrictMode>,
 )

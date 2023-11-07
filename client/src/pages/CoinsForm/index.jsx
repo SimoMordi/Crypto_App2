@@ -54,8 +54,8 @@ const CoinsForm = () => {
               <label htmlFor="currency">Currency:</label>
               <select
                   id="currency"
-                  name="currency" // This should be unique to the select and match the expected data structure
-                  value={selectedCoin} // Use formData.currency for controlled component
+                  name="currency" 
+                  value={selectedCoin} 
                   onChange={handleChange}
               >
                   <option value="" disabled>Select a Currency</option>

@@ -36,33 +36,26 @@
     font-weight: bold;
   }
   
-  /* Buttons */
+ 
   .mybutton {
-    border: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     margin-right: 0.5rem;
     cursor: pointer;
-    background-color: #e73c3c; /* Delete button color */
     color: white;
     transition: background-color 0.3s ease;
   }
   
-  /* .mybutton:last-child {
-    background-color: #1471bd; 
-  } */
   
   .mybutton:hover {
     opacity: 0.9;
   }
-  
   
   .coin-info {
     font-size: 0.9rem;
     color: #666;
   }
   
- 
   @media (max-width: 768px) {
     .coin-card {
       width: calc(50% - 1rem);

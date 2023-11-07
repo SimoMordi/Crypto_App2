@@ -1,6 +1,5 @@
 
 
-// imports 
 const express = require('express');
 const dotenv = require('dotenv')
 const cors = require('cors');
@@ -16,7 +15,7 @@ const PORT = 3000;
 
 
 const app = express();
-// START MIDDLEWARE //
+//MIDDLEWARE //
 app.use(express.json());
 app.use(cors({
     origin: "*"
@@ -24,19 +23,9 @@ app.use(cors({
 app.use(morgan('dev'));
 app.use(helmet());
 
-// will happen on every request (taking away the /server part)
-app.use((req, res, next)=> {
-    if (req.path.startsWith('/server')) {
-        req.url = req.url.replace('/server', ''); // strip /server from the path
-    }
-    next();
-});
-
-
-
 // frontend 
 app.use(express.static(path.join(__dirname, "../client/dist")));
-
+// Read
 app.get("/coins", async (req, res) => {
     try {
         let dbResponse = await Coin.find();
@@ -45,7 +34,6 @@ app.get("/coins", async (req, res) => {
         res.status(400).send("error")
     }
 });
-
 
 // CREATE 
 app.post("/coins", async (req, res) => {
@@ -57,7 +45,6 @@ app.post("/coins", async (req, res) => {
         res.status(400).send("error")
     }
 });
-
 
 // READ 
 app.get("/currencies", async (req, res) => {
@@ -90,8 +77,6 @@ app.delete("/coins/:id", async (req, res) => {
         res.status(400).send("error")
     }
 });
-
-
 
 
 app.get('/*', (req, res) => {

@@ -3,7 +3,7 @@ import axios from 'axios';
 import "./index.css"
 
 const  CurrenciesPage = () => {
-  // Combined state 
+
   const [currency, setCurrency] = useState({
     name: '',
     symbol: '',
@@ -13,14 +13,13 @@ const  CurrenciesPage = () => {
   // Added state for the list of currencies
   const [currencyList, setCurrencyList] = useState([]);
 
-  // Function to handle adding a currency
+ 
   const handleAddCurrency = () => {
     const newCurrency = {
-      // id: Date.now(), // temporary unique id
       name: currency.name,
       symbol: currency.symbol,
-      amount: Number(currency.amount),
-      price: Number(currency.price)
+      price: Number(currency.price),
+      amount: Number(currency.amount)
     };
 
     axios({
@@ -32,7 +31,7 @@ const  CurrenciesPage = () => {
     });
 
     setCurrencyList(prevData => [...prevData, newCurrency]);
-    // Reset the form fields using the new setCurrency function
+  
     setCurrency({
       name: '',
       symbol: '',

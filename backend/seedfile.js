@@ -1,9 +1,7 @@
 const Crypto = require('./models/Currencies.js');
-
-
-// establish connection to MONGO
 require('./config/db.js')
-// instert all these objects into the "states" collection
+
+
 const cryptocurrencies = [
     { name: "Bitcoin", symbol: "BTC", price: 47000.23, orderType: "buy" },
     { name: "Ethereum", symbol: "ETH", price: 3200.55, orderType: "sell" },
@@ -54,7 +52,8 @@ const cryptocurrencies = [
   
 
 const insert = async () => {
-    // dont want to enter all the states twice 
+   
+  
     await Crypto.deleteMany()
     await Crypto.insertMany(cryptocurrencies);
 } 

@@ -26,7 +26,7 @@ function App() {
         method: "GET",
         url: "/server/currencies"
       }).then((response) => {
-        // The states data should be in response.data
+       
         setCurrencies(response.data)
       })
     }catch (error) {
@@ -38,7 +38,7 @@ function App() {
         method: "GET",
         url: "/server/coins"
       }).then((response) => {
-        // The states data should be in response.data
+        
         setCoins(response.data)
       })
     }catch (error) {
