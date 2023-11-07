@@ -1,0 +1,47 @@
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+    color: #e5e5ee;
+    background-color: #051024;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.homepage-header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #cfcbcb;
+}
+
+.market-summary, .news-feed, .portfolio-snapshot {
+    padding: 20px;
+}
+
+.market-summary h2, .news-feed h2, .portfolio-snapshot h2 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.card {
+    background: #2c2f36;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 15px 0;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.card-header {
+    font-size: 1.25rem;
+    color: #00ffae;
+}
+
+.card-content {
+    color: #a1a1a1;
+}
