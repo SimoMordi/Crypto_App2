@@ -7,7 +7,9 @@ export default defineConfig({
   server: {
     proxy: {
       '/server': {
-        target: "http://localhost:3000",
+        target: "https://crypto-app-ln9d.onrender.com
+
+",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/server/, '')
       },
