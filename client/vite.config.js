@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/server': {
-        target: "https://crypto-server-api.onrender.com",
+        target: "https://localhost:3000",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/server/, '')
       },
