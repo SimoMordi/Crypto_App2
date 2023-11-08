@@ -14,7 +14,7 @@ Managing Portfolio: You can add your cryptocurrency holdings to the portfolio se
 Contributing
 Chase helped with significant part for teaching us and show me the way!
 
-Project Links: https://github.com/yourusername/CryptoApp
+Project Links: https://github.com/SimoMordi/Crypto_App2
 
 ...
                                          https://crypto-app-ln9d.onrender.com
