@@ -23,6 +23,13 @@ app.use(cors({
 app.use(morgan('dev'));
 app.use(helmet());
 
+app.use((req,res,next)=>{
+    if (req.path.startsWith('/server')) {
+        req.url = req.url.replace('/server', ''); // strip /server from the path
+    }
+    next();
+});
+
 // frontend 
 app.use(express.static(path.join(__dirname, "../client/dist")));
 // Read
